@@ -106,6 +106,9 @@ const miloLibs = setLibs(LIBS);
 const { loadArea, setConfig } = await import(`${miloLibs}/utils/utils.js`);
 
 (async function loadPage() {
+  const img = document.querySelector('img');
+  img.setAttribute('loading', 'eager');
+  img.setAttribute('fetchpriority', 'high');
   setConfig({ ...CONFIG, miloLibs });
   await loadArea();
   decorateIcons();
