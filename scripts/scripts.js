@@ -52,6 +52,7 @@ const ICON_ROOT = '/icons';
 (async function loadLCPImage() {
   const lcpImg = document.querySelector('img');
   lcpImg?.setAttribute('loading', 'eager');
+  lcpImg?.setAttribute('fetchpriority', 'high');
 }());
 
 /*
@@ -106,9 +107,6 @@ const miloLibs = setLibs(LIBS);
 const { loadArea, setConfig } = await import(`${miloLibs}/utils/utils.js`);
 
 (async function loadPage() {
-  const img = document.querySelector('img');
-  img.setAttribute('loading', 'eager');
-  img.setAttribute('fetchpriority', 'high');
   setConfig({ ...CONFIG, miloLibs });
   await loadArea();
   decorateIcons();
