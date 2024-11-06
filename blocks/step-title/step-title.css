@@ -2,16 +2,16 @@ body {
    counter-reset: step-counter;
 }
 
-.step-title-wrapper {
+.step-title {
     display: flex;
     align-items: center;
 }
 
-.step-title-wrapper > p {
+.step-title > p {
     flex: 1;
 }
 
-.step-title-wrapper:before {
+.step-title:before {
     counter-increment: step-counter;
     content: counter(step-counter);
     border-radius: 50%;
