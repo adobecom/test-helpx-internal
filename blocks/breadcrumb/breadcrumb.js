@@ -2,7 +2,7 @@ export default (block) => {
   const anchors;
   [...block.children].forEach(child => {
     const anchorTag = child.querySelector('a');
-    anchors.add(anchorTag);
+    anchors.push(anchorTag);
   })
   const ul = document.createElement('ul');
   anchors.forEach(a => {
