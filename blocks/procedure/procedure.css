@@ -1,45 +1,38 @@
-.procedure > ol.stepList {
-  padding-inline-start: 0;
-  counter-reset: step-counter;
+.procedure {
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+.procedure ol.steps {
+  counter-reset: steps-counter 0;
+  margin-top: 1rem;
+  list-style: none;
+  padding-left: 0;
 }
 
-.procedure > ol.stepList > li.step {
-  list-style-type: none;
-  counter-increment: step-counter;
-  display: flex;
-  padding: 2px 0;
-  margin: 10px 0;
+.procedure ol.steps li {
+  counter-increment: steps-counter;
+  position: relative;
+  padding-left: 2.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.procedure > ol.stepList > li.step:before {
-  display: flex;
-  content: counter(step-counter);
-  height:1.6875rem;
-  min-width: 1.6875rem;
-  font-size: 0.8125rem;
-  background: var(--static-color-gray-700);
-  color: white;
+.procedure ol.steps li:before {
+  content: counter(steps-counter);
+  position: absolute;
+  left: 0;
+  font-size: 1rem;
   border-radius: 50%;
-  justify-content: center;
-  align-items: center;
-  margin-right: 0.6rem;
-  transform: translateY(-0.2rem);
-}
-.procedure > ol.stepList > li.step > div {
-  margin:0;
-  padding-top:0;
-  min-width:93%;
+  background-color: #e6e6e6;
+  height: 2rem;
+  width: 2rem;
+  color: #000;
+  text-align: center;
+  font-weight: 400;
+  line-height: 1.875rem;
 }
 
-.procedure > ol.stepList > li.step p {
+.procedure ol.steps li h2 {
+  font-size: 1.125rem;
+  font-weight: 400;
   margin: 0;
-}
-
-.procedure > ol.stepList > li.step > div > ul {
-  padding-inline-start: 1em;
-  margin: 0.625rem 0 0.75rem;
-}
-.procedure > ol.stepList > li.step > div > ul > li {
-  list-style-type: disc;
-  margin: 0.5rem;
 }
