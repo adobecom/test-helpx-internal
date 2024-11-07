@@ -1,5 +1,5 @@
 export default (block) => {
-  const anchors;
+  const anchors = [];
   [...block.children].forEach(child => {
     const anchorTag = child.querySelector('a');
     anchors.push(anchorTag);
