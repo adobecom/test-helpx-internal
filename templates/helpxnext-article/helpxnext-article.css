@@ -23,6 +23,7 @@ body main .main-content {
 }
 
 body main .toc {
+    display: none;
     width: 24.67%;
     max-width: 24.67%;
     flex: 1;

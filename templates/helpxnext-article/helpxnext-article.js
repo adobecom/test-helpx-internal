@@ -13,14 +13,14 @@ const getToc = (main) => {
 const getMainContent = (main) => {
   const mainContent = document.createElement('div');
   mainContent.classList.add('main-content');
+  
   const childItems = [...main.children];
   childItems.forEach((child) => mainContent.appendChild(child));
   return mainContent;
 };
 
 const restructMain = (main, toc, mainContent) => {
-  main.appendChild(toc);
-  main.appendChild(mainContent);
+    main.innerHTML = toc.outerHTML + mainContent.outerHTML;
 };
 
 (() => {
@@ -28,4 +28,5 @@ const restructMain = (main, toc, mainContent) => {
   const toc = getToc(main);
   const mainContent = getMainContent(main);
   restructMain(main, toc, mainContent);
+  toc.style.display = 'block';
 })();
