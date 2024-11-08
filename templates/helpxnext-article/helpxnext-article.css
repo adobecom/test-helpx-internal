@@ -1,7 +1,7 @@
 body main > .section > .content{
     max-width: 100%;
 }
-body{
+main{
     max-width: var(--grid-container-width);
     margin: 0 auto;
 }
