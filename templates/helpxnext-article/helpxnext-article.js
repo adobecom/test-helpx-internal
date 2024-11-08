@@ -1,10 +1,3 @@
-(() => {
-  const main = getMain();
-  const toc = getToc(main);
-  const mainContent = getMainContent(main);
-  restructMain(main, toc, mainContent);
-})();
-
 const getMain = () => {
   const mainElements = [...document.getElementsByTagName('main')];
   return mainElements[0];
@@ -29,3 +22,10 @@ const restructMain = (main, toc, mainContent) => {
   main.appendChild(toc);
   main.appendChild(mainContent);
 };
+
+(() => {
+  const main = getMain();
+  const toc = getToc(main);
+  const mainContent = getMainContent(main);
+  restructMain(main, toc, mainContent);
+})();
