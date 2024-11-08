@@ -1,7 +1,3 @@
-.procedure {
-  max-width: var(--grid-container-width);
-  margin: 0 auto;
-}
 .procedure ol.steps {
   counter-reset: steps-counter 0;
   margin-top: 1rem;
