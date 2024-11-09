@@ -28,5 +28,4 @@ const restructMain = (main, toc, mainContent) => {
   const toc = getToc(main);
   const mainContent = getMainContent(main);
   restructMain(main, toc, mainContent);
-  toc.style.display = 'block';
 })();
