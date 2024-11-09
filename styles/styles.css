@@ -36,3 +36,34 @@
   --grid-container-width-help-article: 100%;
 }
 
+body main > .section > .content {
+  max-width: 100%;
+}
+body main {
+  max-width: var(--grid-container-width);
+  margin: 0 auto;
+}
+
+body main > div {
+  margin: 2.5rem 0 0;
+}
+
+body main {
+  display: flex;
+  justify-content: space-between;
+}
+
+body main > div.main-content {
+  display: block;
+  width: 70%;
+  max-width: 70%;
+}
+
+body main > div.toc {
+  display: block;
+  width: 24.67%;
+  max-width: 24.67%;
+  flex: 1;
+  position: sticky;
+  top: 5rem;
+}
