@@ -3,18 +3,16 @@ export default (block) => {
   init(block);
 };
 
-
-init = (block) => {
+function init(block) {
   const tocParentElement = block.querySelectorAll('li.toclink-label > .parentNode');
   const pageNavLink = block.querySelectorAll('.toclink-label a');
   const currentPagePath = window.location.pathname;
   setActiveIndicator(currentPagePath, pageNavLink);
   toggleIconAndExpandToc(tocParentElement);
   expandTOC(block,`.leafNode[href='${currentPagePath}.html']` );
-  
 }
 
-construct = (block) => {
+function construct(block) {
   const tocList = [...block.querySelector(`div.toc > div > div`).children][0];
   tocList.classList.add('tocList');
   replaceElement(tocList, 'p', 'span');
@@ -22,20 +20,20 @@ construct = (block) => {
   addClassName(tocList, 'li', 'toclink-label');
   addClassName(tocList, 'a', 'leafNode');
   [...tocList.children].forEach(childElement => {
-    [...childElement.children].forEach(child => addChildClass(child))
-  })
+    [...childElement.children].forEach(child => addChildClass(child));
+  });
   block.innerHTML = tocList.outerHTML;
 }
 
-replaceElement = (node, currElement, newElement) => {
+function replaceElement(node, currElement, newElement) {
   [...node.getElementsByTagName(currElement)].forEach((element) => {
     const replacedElement = document.createElement(newElement);
     replacedElement.innerHTML = element.innerHTML;
     element.parentNode.replaceChild(replacedElement, element);
   });
-};
+}
 
-wrapWithSpan = (node) => {
+function wrapWithSpan(node) {
   [...node.getElementsByTagName('span')].forEach((element) => {
     const outerElement = document.createElement('span');
     outerElement.classList.add('parentNode');
@@ -48,15 +46,15 @@ wrapWithSpan = (node) => {
     outerElement.innerHTML = icon.outerHTML + element.outerHTML;
     element.parentNode.replaceChild(outerElement, element);
   });
-};
+}
 
-addClassName = (node, element, className) => {
+function addClassName(node, element, className) {
   [...node.getElementsByTagName(element)].forEach((ele) => {
     ele.classList.add(className);
   });
-};
+}
 
-addChildClass = (node) => {
+function addChildClass(node) {
   if (node.tagName.toLowerCase() === 'ul') {
     node.classList.add('tocListItem');
     if (node.childElementCount > 0) node.classList.add('children');
@@ -68,47 +66,46 @@ addChildClass = (node) => {
       [...node.children].forEach((child) => addChildClass(child));
     }
   }
-};
+}
 
-expandTOC = (block, elem) => {
+function expandTOC(block, elem) {
   if(!elem || !block) return;
 
   const initialElement = block.querySelector(`${elem}`);
 
   if (initialElement) {
-      let currentElement = initialElement.parentElement;
-      while (currentElement) {
-          if (currentElement.classList.contains('toclink-label')) {
-              const parentNode = currentElement.querySelector('.parentNode');
-              if (parentNode) {
-                  parentNode.classList.add('expandToc', 'highlightNode');
-              }
-          }
-          currentElement = currentElement.parentElement;
+    let currentElement = initialElement.parentElement;
+    while (currentElement) {
+      if (currentElement.classList.contains('toclink-label')) {
+        const parentNode = currentElement.querySelector('.parentNode');
+        if (parentNode) {
+          parentNode.classList.add('expandToc', 'highlightNode');
+        }
       }
+      currentElement = currentElement.parentElement;
+    }
 
-      initialElement.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'center'
-      });
-      
+    initialElement.scrollIntoView({
+      behavior: 'smooth',
+      block: 'center',
+      inline: 'center'
+    });
   }
 }
 
-setActiveIndicator = (currentPagePath, pageNavLink) => {
+function setActiveIndicator(currentPagePath, pageNavLink) {
   if (!currentPagePath || !pageNavLink) return;
   pageNavLink.forEach((link) => {
-      if (link.getAttribute('href').includes(currentPagePath)) {
-          link.closest('.toclink-label').classList.add('is-active');
-      }
+    if (link.getAttribute('href').includes(currentPagePath)) {
+      link.closest('.toclink-label').classList.add('is-active');
+    }
   });
 }
 
-toggleIconAndExpandToc = (tocParentElement) => {
+function toggleIconAndExpandToc(tocParentElement) {
   tocParentElement.forEach(parent => {
-      parent.addEventListener('click', function() {
-          parent.classList.toggle('expandToc');
-      });
+    parent.addEventListener('click', function() {
+      parent.classList.toggle('expandToc');
+    });
   });
 }
