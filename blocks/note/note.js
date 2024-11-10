@@ -39,8 +39,7 @@ function createNoteBlock(data) {
 }
 
 function replaceNoteContent(block,newContent) {
-  const noteElement = block.querySelector('.note');
-  if (noteElement) {
-    noteElement.innerHTML = newContent.innerHTML;
+  if (!block && block.classList.contains('note')) {
+    block.innerHTML = newContent.innerHTML;
   }
 }
