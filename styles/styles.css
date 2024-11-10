@@ -46,6 +46,10 @@ body ol>li,body p,body td,body th,body ul>li {
   margin-bottom: 18px
 }
 
+body a:hover{
+  text-decoration: none;
+}
+
 body h1 {
   font-size: 36px;
   margin-bottom: 9px
@@ -56,30 +60,30 @@ body h2 {
   margin-bottom: 7px
 }
 
-body main > .section > .content {
+body.helpxnext-article main > .section > .content {
   max-width: 100%;
 }
-body main {
+body.helpxnext-article main {
   max-width: var(--grid-container-width);
   margin: 0 auto;
 }
 
-body main > div {
+body.helpxnext-article main > div {
   margin: 2.5rem 0 0;
 }
 
-body main {
+body.helpxnext-article main {
   display: flex;
   justify-content: space-between;
 }
 
-body main > div.main-content {
+body.helpxnext-article main > div.main-content {
   display: block;
   width: 70%;
   max-width: 70%;
 }
 
-body main > div.toc {
+body.helpxnext-article main > div.toc {
   display: block;
   width: 24.67%;
   max-width: 24.67%;
