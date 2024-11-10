@@ -13,7 +13,7 @@
 export default (block) => {
   const noteMarkUp = ruleSet(block);
   const noteHTML = createNoteBlock(noteMarkUp);
-  replaceNoteContent(noteHTML);
+  replaceNoteContent(block, noteHTML);
 }
 
 function ruleSet(block) {
@@ -38,8 +38,8 @@ function createNoteBlock(data) {
   return div.firstElementChild;
 }
 
-function replaceNoteContent(newContent) {
-  const noteElement = document.querySelector('.note');
+function replaceNoteContent(block,newContent) {
+  const noteElement = block.querySelector('.note');
   if (noteElement) {
     noteElement.innerHTML = newContent.innerHTML;
   }
