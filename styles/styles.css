@@ -91,7 +91,3 @@ body.helpxnext-article main > div.toc {
   position: sticky;
   top: 5rem;
 }
-
-#title-bar .page-title {
-  display: inline;
-}
