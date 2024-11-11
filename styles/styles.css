@@ -41,9 +41,9 @@ body * {
   margin: 0;
 }
 
-body ol>li,body p,body td,body th,body ul>li {
+body main ol>li,body main p,body main td,body main th,body main ul>li {
   font-size: 18px;
-  margin-bottom: 18px
+  margin-bottom: 18px;
 }
 
 body a:hover{
