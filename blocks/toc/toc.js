@@ -15,6 +15,11 @@ function init(block) {
 function construct(block) {
   const tocList = [...block.querySelector(`div.toc > div > div`).children][0];
   tocList.classList.add('tocList');
+
+  tocList.querySelectorAll('p > a[href]').forEach(anchor => {
+    anchor.parentNode.outerHTML = anchor.outerHTML;
+  })
+
   replaceElement(tocList, 'p', 'span');
   wrapWithSpan(tocList);
   addClassName(tocList, 'li', 'toclink-label');
