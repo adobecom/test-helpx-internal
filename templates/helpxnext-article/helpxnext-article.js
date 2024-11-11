@@ -10,30 +10,17 @@ const getToc = (main) => {
   return toc;
 };
 
-const getTitle = () => {
-  const div = document.createElement('div');
-  div.innerHTML = `
-      <div id="title-bar" class="titlebar">
-        <h1 class="page-title">document.title</h1>
-      </div>
-    `;
-  return div.firstElementChild;
-};
-
 const getMainContent = (main) => {
   const mainContent = document.createElement('div');
   mainContent.classList.add('main-content');
+  
   const childItems = [...main.children];
   childItems.forEach((child) => mainContent.appendChild(child));
-
-  document
-    .querySelector('.breadcrumb')
-    .insertAdjacentElement('afterend', getTitle);
   return mainContent;
 };
 
 const restructMain = (main, toc, mainContent) => {
-  main.innerHTML = toc.outerHTML + mainContent.outerHTML;
+    main.innerHTML = toc.outerHTML + mainContent.outerHTML;
 };
 
 (() => {
