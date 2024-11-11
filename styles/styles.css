@@ -91,3 +91,15 @@ body.helpxnext-article main > div.toc {
   position: sticky;
   top: 5rem;
 }
+
+#title-bar .page-title {
+  display: inline;
+}
+
+.last-updated-container {
+  margin: 1rem 0;
+  font-size: 1rem;
+  font-style: italic;
+  line-height: 1.5rem;
+  color: #464646
+}
