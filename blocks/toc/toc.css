@@ -75,7 +75,7 @@
 }
 
 .toc  li.toclink-label .parentNodeLabel{
-  padding: 0 .75rem;
+  padding: 0 .875rem;
   font-size: .875rem;
   line-height: 1.125rem
 }
@@ -102,8 +102,6 @@
 .toc  li.toclink-label.is-active {
   background-color: #E6E6E6;
   border-radius: .25rem;
-  margin-left: -1.75rem;
-  padding-left: 2.75rem
 }
 
 .toc  li.toclink-label.is-active:hover {
