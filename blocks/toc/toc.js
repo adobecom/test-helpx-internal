@@ -104,8 +104,7 @@ function setActiveIndicator(currentPagePath, pageNavLink) {
 
 function toggleIconAndExpandToc(tocParentElement) {
   tocParentElement.forEach(parent => {
-    parent.addEventListener('click', function() {
-      parent.classList.toggle('expandToc');
-    });
+    parent.setAttribute('onclick','this.classList.toggle("expandToc");')
   });
+  
 }
