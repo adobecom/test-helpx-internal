@@ -25,7 +25,7 @@ function construct(block) {
   addClassName(tocList, 'li', 'toclink-label');
   addClassName(tocList, 'a', 'leafNode');
   [...tocList.children].forEach(childElement => {
-    [...childElement.children].forEach(child => addChildClass(child));
+    addChildClass(childElement);
   });
   block.innerHTML = tocList.outerHTML;
 }
@@ -65,8 +65,9 @@ function addChildClass(node) {
     if (node.childElementCount > 0) node.classList.add('children');
     [...node.children].forEach((child) => addChildClass(child));
   } else if (node.tagName.toLowerCase() === 'li') {
-    if (node.childElementCount === 1) node.classList.add('noChild');
-    else {
+    if (node.childElementCount === 1 && node.firstElementChild.tagName.toLowerCase() === 'a') {
+      node.classList.add('noChild');
+    } else {
       node.classList.add('hasChildren');
       [...node.children].forEach((child) => addChildClass(child));
     }
