@@ -49,7 +49,8 @@
 
 .toc  .toclink-label .parentNode,.toc  .toclink-label a {
   padding-top: .375rem;
-  padding-bottom: .5rem
+  padding-bottom: .5rem;
+  text-decoration: none;
 }
 
 .toc  li.toclink-label{
