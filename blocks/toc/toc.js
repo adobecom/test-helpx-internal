@@ -6,6 +6,7 @@ export default (block) => {
 };
 
 function restructureAppLink(productAppLink, block){
+  if(!productAppLink) return;
   const imageSrc = "https://helpx.adobe.com/content/dam/help/mnemonics/pr_cc_app_RGB.svg";
   const productHref = productAppLink.querySelector('div > div').children[2].firstChild.getAttribute('href');
   const product = productAppLink.querySelector('div > div').children[1].firstChild.data;
