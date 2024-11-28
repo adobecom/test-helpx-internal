@@ -103,3 +103,46 @@ body.helpxnext-article main > div.toc {
   line-height: 1.5rem;
   color: #464646
 }
+
+/* page-navigation- arrows */
+
+.pagenavigationarrows .pna-target {
+  display: flex;
+  justify-content: space-between
+}
+
+.pagenavigationarrows .pna-target .label {
+  margin-bottom: .5rem;
+  color: #222;
+  line-height: 1.125rem
+}
+
+.pagenavigationarrows .pna-target .link {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+  font-weight: 700
+}
+
+.pagenavigationarrows .pna-target .link::after {
+  margin-top: .75rem;
+  background-repeat: no-repeat;
+  height: .59375rem;
+  margin-bottom: 2.5rem
+}
+
+.pagenavigationarrows .pna-target .prev-content .link::after {
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Layer_2' data-name='Layer 2' viewBox='0 0 244.34 55'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %234b4b4b; stroke-width: 0px; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_2-2' data-name='Layer 2'%3E%3Cg id='Layer_1-2' data-name='Layer 1-2'%3E%3Cpath class='cls-1' d='m244.34,32.08H5.87v-9.17h238.47v9.17ZM20.62,53.28L0,27.5,20.62,1.72c1.58-1.98,4.47-2.3,6.44-.72,1.98,1.58,2.3,4.47.72,6.44L9.45,30.36v-5.73l18.33,22.92c1.58,1.98,1.26,4.86-.72,6.44-1.97,1.58-4.86,1.26-6.44-.71Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.pagenavigationarrows .pna-target .next-content {
+  text-align: right
+}
+
+.pagenavigationarrows .pna-target .next-content .link::after {
+  content: '';
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Layer_2' data-name='Layer 2' viewBox='0 0 244.34 55'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: %234b4b4b; stroke-width: 0px; %7D %3C/style%3E%3C/defs%3E%3Cg id='Layer_1-2' data-name='Layer 1'%3E%3Cpath class='cls-1' d='m0,22.92h238.47v9.17H0v-9.17ZM223.72,1.72l20.62,25.78-20.62,25.78c-1.58,1.98-4.47,2.3-6.44.72-1.98-1.58-2.3-4.47-.72-6.44l18.33-22.92v5.73l-18.33-22.92c-1.58-1.98-1.26-4.86.72-6.44,1.97-1.58,4.86-1.26,6.44.71Z'/%3E%3C/g%3E%3C/svg%3E");
+  background-position: right
+}
