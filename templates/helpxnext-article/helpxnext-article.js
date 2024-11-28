@@ -46,8 +46,61 @@ const getMain = () => {
       `;
     return div.firstElementChild;
   };
+
+  const getAnchorTag = (ele, className, label) => {
+    const div = document.createElement('div');
+    let href = '#';
+    if (ele && ele.firstElementChild) {
+      const anchorTag = ele.firstElementChild;
+      if (anchorTag.getAttribute('href') != null)
+        href = anchorTag.getAttribute('href');
+      const text = anchorTag.firstChild.nodeValue;
   
-  const getMainContent = (main) => {
+      if (text !== null) {
+        div.innerHTML = `
+          <a class="${className}" href="${href}">
+              <p class="label">
+                  <small>${label}</small>
+              </p>
+              <p class="link">${text}</p>
+          </a>
+          `;
+      }
+    }
+    if (href === '#') {
+      div.innerHTML = `<a class="${className}" href="#"> </a>`;
+    }
+    return div.firstElementChild;
+  };
+  
+  const getPageNavigationArrows = (toc) => {
+    const currentPageAnchor = toc.querySelector(
+      `a[href='${window.location.pathname}']`
+    );
+    const pnaTarget = document.createElement('div');
+    pnaTarget.classList.add('pna-target');
+    if (currentPageAnchor) {
+      const prev = getAnchorTag(
+        currentPageAnchor.parentElement.previousElementSibling,
+        'prev-content',
+        'Prev'
+      );
+      const next = getAnchorTag(
+        currentPageAnchor.parentElement.nextElementSibling,
+        'next-content',
+        'Next'
+      );
+  
+      pnaTarget.appendChild(prev);
+      pnaTarget.appendChild(next);
+    }
+    const pagenavigationarrows = document.createElement('div');
+    pagenavigationarrows.classList.add('pagenavigationarrows');
+    pagenavigationarrows.innerHTML = pnaTarget.outerHTML;
+    return pagenavigationarrows;
+  };  
+  
+  const getMainContent = (main, pagenavigationarrows) => {
     const mainContent = document.createElement('div');
     mainContent.classList.add('main-content');
     const childItems = [...main.children];
@@ -57,6 +110,10 @@ const getMain = () => {
     if (breadcrumb) {
       breadcrumb.insertAdjacentElement('afterend', getLastUpdatedDate());
       breadcrumb.insertAdjacentElement('afterend', getTitle());
+
+      if(pagenavigationarrows) {
+        breadcrumb.parentElement.appendChild(pagenavigationarrows);
+      }
     }
     return mainContent;
   };
@@ -68,7 +125,8 @@ const getMain = () => {
   (() => {
     const main = getMain();
     const toc = getToc(main);
-    const mainContent = getMainContent(main);
+    const pna = getPageNavigationArrows(toc);
+    const mainContent = getMainContent(main, pna);
     restructMain(main, toc, mainContent);
   })();
   
