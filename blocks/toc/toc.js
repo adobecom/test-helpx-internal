@@ -9,7 +9,7 @@ function init(block) {
   const currentPagePath = window.location.pathname;
   setActiveIndicator(currentPagePath, pageNavLink);
   toggleIconAndExpandToc(tocParentElement);
-  expandTOC(block,`.leafNode[href='${currentPagePath}.html']` );
+  expandTOC(block,`.leafNode[href='${currentPagePath}']` );
 }
 
 function construct(block) {
