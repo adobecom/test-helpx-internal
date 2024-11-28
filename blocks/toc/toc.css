@@ -7,7 +7,7 @@
   list-style-type: none
 }
 
-.toc  a {
+.toc .toclink-label a {
   color: #4b4b4b;
   display: block;
   margin-left: .75rem
