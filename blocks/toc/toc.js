@@ -1,7 +1,43 @@
 export default (block) => {
+  const productAppLink = getProductAppLink(block);
   construct(block);
   init(block);
+  restructureAppLink(productAppLink, block);
 };
+
+function restructureAppLink(productAppLink, block){
+  const imageSrc = "https://helpx.adobe.com/content/dam/help/mnemonics/pr_cc_app_RGB.svg";
+  const productHref = productAppLink.querySelector('div > div').children[2].firstChild.getAttribute('href');
+  const product = productAppLink.querySelector('div > div').children[1].firstChild.data;
+
+  const div = document.createElement('div');
+  div.innerHTML = `<div class="productDetails">
+                    <a href="${productHref}" class="productSection">
+                        <img src="${imageSrc}" alt="${product}">
+                    </a>
+                    <div class="productOpenLink">
+                        <p class="productName">
+                            <a href="${productHref}">Premiere Pro</a>
+                        </p>
+                        
+                            <a href="${productHref}" class="openAppSection">
+                                <span class="openAppText">Open app</span>
+                                <span class="openAppIcon"></span>
+                            </a>
+                        
+                    </div>
+                  </div>`;
+  
+  block.insertBefore(div.firstElementChild, block.firstElementChild);
+}
+
+function getProductAppLink(block) {
+  if(block.firstElementChild.querySelector('a').firstChild.data === 'open-app') {
+    const appLink = block.removeChild(block.firstElementChild);
+    return appLink;
+  }
+  return null;
+}
 
 function init(block) {
   const tocParentElement = block.querySelectorAll('li.toclink-label > .parentNode');
