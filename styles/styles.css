@@ -93,6 +93,10 @@ main a {
   color: #0265dc
 }
 
+.main-content ol,.main-content ul {
+  padding-left: 1.25rem
+}
+
 #title-bar .page-title {
   display: inline;
 }
