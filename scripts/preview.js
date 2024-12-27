@@ -106,7 +106,7 @@ const locales = {
 };
 
 const CONFIG = {
-  codeRoot: '/unitylibs',
+  codeRoot: '',
   locales,
   geoRouting: 'off',
   imsClientId: 'adobedotcom-cc',
